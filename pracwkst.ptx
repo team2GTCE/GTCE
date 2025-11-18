@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <worksheet>
-  
-  
-
+  <title>1 (ILA 1.1, 1.2)</title>
+  <p></p>
     
+    <page>
+<m>{\large\textbf{1.1 Studio Organization}}<m>
+  <p> This worksheet is a bit shorter than most other worksheets to give time to discuss course and studio
+organization. We will discuss:</p>
+
+  <p>
+    A) What are studios? How are they different from lectures?
+  </p>
+  <p></p><p></p><p></p>
+  <p>
+    B) How do TAs support your class?
+  </p>
+  <p></p><p></p><p></p>
+  <p>
+    C) Studio recordings and worksheet solutions.
+  </p>
+  <p></p><p></p><p></p>
+  <p>
+    D) How students can ask questions during studio.
+  </p>
+  <p></p><p></p><p></p>
+  <p>
+    E) Office hours (please attend them!).
+  </p>
+  <p></p><p></p><p></p>
+  <p>
+    F) General advice on how to succeed in linear algebra (and college!).
+  </p>
+  <p></p><p></p><p></p>
     </page>
+    <page>
     <page>
       <exercise workspace="1in">
           <introduction>
