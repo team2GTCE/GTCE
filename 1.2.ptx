@@ -1,1 +1,140 @@
+<page xml:id="p9" title="The LU Factorization">
+
+    <section xml:id="triangular-matrices" title="1.2.1 Triangular Matrices">
+
+        <p>
+        To solve a linear system of the form <m>A\vec{x}=\vec{b}</m>, one could use row reduction,
+        or in theory compute the inverse <m>A^{-1}</m> and then multiply to obtain 
+        <m>\vec{x}=A^{-1}\vec{b}</m>. But computing the inverse of an <m>n\times n</m> matrix is
+        difficult for large <m>n</m>, so more efficient methods are preferred.
+        </p>
+
+        <p>
+        Matrix factorizations allow us to write a matrix as a product of simpler matrices.
+        In this section, we factor a matrix into lower and upper triangular matrices to
+        create the LU factorization for solving linear systems.
+        </p>
+
+        <definition xml:id="def-upper-lower" title="Upper and Lower Triangular Matrices">
+            <statement>
+            Suppose <m>A</m> is an <m>m\times n</m> matrix with entries <m>a_{i,j}</m>.
+            Then <m>A</m> is <term>upper triangular</term> if <m>a_{i,j}=0</m> whenever <m>i&gt;j</m>.
+            Similarly, <m>A</m> is <term>lower triangular</term> if <m>a_{i,j}=0</m> whenever <m>i&lt;j</m>.
+            </statement>
+        </definition>
+
+        <p>Examples of upper triangular matrices:</p>
+
+        <me>
+        \begin{pmatrix}
+        1 & 5 & 0 \\
+        0 & 2 & 4 \\
+        0 & 0 & 1
+        \end{pmatrix},\quad
+        \begin{pmatrix}
+        1 & 0 & 0 & 1 \\
+        0 & 2 & 1 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix},\quad
+        \begin{pmatrix}
+        2 & 1 \\
+        0 & 1
+        \end{pmatrix},\quad
+        \begin{pmatrix}
+        0 & 0 \\
+        0 & 0
+        \end{pmatrix}
+        </me>
+
+        <p>Examples of lower triangular matrices:</p>
+
+        <me>
+        \begin{pmatrix}
+        1 & 0 & 0 \\
+        3 & 2 & 0
+        \end{pmatrix},\quad
+        \begin{pmatrix}
+        3 & 0 & 0 & 0 \\
+        1 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 2 & 0 & 1
+        \end{pmatrix},\quad
+        \begin{pmatrix}
+        1 & 0 \\
+        1 & 4 \\
+        0 & 1 \\
+        2 & 0
+        \end{pmatrix},\quad
+        \begin{pmatrix}
+        0 & 0 \\
+        0 & 0
+        \end{pmatrix}
+        </me>
+
+        <p>
+        In an upper triangular matrix, entries below the main diagonal are zero; in a lower
+        triangular matrix, entries above the main diagonal are zero. The remaining entries may
+        take any value.
+        </p>
+
+    </section>
+</page>
+<page xml:id="p10" title="1.2.2 The LU Factorization">
+
+    <section xml:id="the-lu-factorization" title="1.2.2 The LU Factorization">
+
+        <theorem xml:id="thm-lu" title="The LU Factorization">
+            <statement>
+            If <m>A</m> is an <m>m\times n</m> matrix that can be row reduced to echelon form
+            without any row exchanges, then <m>A = LU</m>, where <m>L</m> is a lower triangular
+            <m>m \times m</m> matrix with ones on the diagonal, and <m>U</m> is an echelon form
+            of <m>A</m>.
+            </statement>
+        </theorem>
+
+        <proof>
+            <p>
+            Suppose <m>A</m> can be reduced to echelon form <m>U</m> using <m>p</m> row operations
+            that add a multiple of one row to a lower row. Each operation corresponds to an
+            elementary matrix, so:
+            </p>
+
+            <me>E_p E_{p-1} \cdots E_2 E_1 A = U \tag{1.2}</me>
+
+            <p>
+            Let <m>L^{-1} = E_p E_{p-1} \cdots E_1</m>. Then:
+            </p>
+
+            <me>L^{-1} A = U. \tag{1.3}</me>
+
+            <p>
+            Multiplying (1.3) by <m>L</m> gives <m>A = LU</m>. Since each <m>E_i</m> is lower
+            triangular, their product <m>L^{-1}</m> is also lower triangular, and so is its
+            inverse <m>L</m>. This proves the decomposition.
+            </p>
+        </proof>
+
+    </section>
+
+</page>
+<page xml:id="p11" title="1.2.3 Constructing the LU Factorization">
+
+    <section xml:id="constructing-lu" title="1.2.3 Constructing the LU Factorization">
+
+        <p>
+        To construct the LU factorization, we apply a sequence of row operations to reduce
+        <m>A</m> to <m>U</m>. From equation (1.3),
+        </p>
+
+        <me>E_p E_{p-1} \cdots E_2 E_1 A = L^{-1} A = U.</me>
+
+        <p>
+        Here <m>L^{-1} = E_p E_{p-1} \cdots E_1</m>, where each <m>E_i</m> corresponds to adding
+        a multiple of one row to a lower row.
+        </p>
+
+    </section>
+
+</page>
 
