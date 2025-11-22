@@ -138,3 +138,7 @@
 
 </page>
 
+<page xml:id="p15" title="1.2.7 Final Notes on The LU Factorization">
+
+    <section xml:id="lu-final-notes" title="1.2.7 Final Notes on The LU Factorization">
+        <p>In our treatment of the LU factorization we constructed the LU decomposition using the following process.</p>
