@@ -142,3 +142,57 @@
 
     <section xml:id="lu-final-notes" title="1.2.7 Final Notes on The LU Factorization">
         <p>In our treatment of the LU factorization we constructed the LU decomposition using the following process.</p>
+        <ol>
+            <li>
+                Reduce <m>A</m> to an echelon form <m>U</m> by a sequence of row replacement
+                operations, if possible.
+            </li>
+
+            <li>
+                Place entries in <m>L</m> such that the same sequence of row operations reduces
+                <m>L</m> to <m>I</m>.
+            </li>
+        </ol>
+        <p>
+        There is much more to the LU factorization than what happened in this section. There are for example other methods for constructing <m>A = L U</m>
+        that you may encounter in future courses or project you are working on. In our approach, the only row operation we use to construct <m>L</m> and <m>U</m>
+        is to replace a row with a multiple of a row above it. Multiplying a row by a non-zero scalar is not needed, but more importantly, we cannot swap rows. 
+        More advanced linear algebra and numerical analysis would address the significant limitation.
+        </p>
+    </section>
+    <section xml:id="lu-excercises" title="1.2.8 Excersises">
+        <p>1.Construct The LU factorization for the following matrices.</p>
+        <p>(a)
+        \[
+        \begin{pmatrix}
+        -1 & 5 & 3 \\
+        1 & -10 & 3 
+        \end{pmatrix},\quad
+        \]
+        </p>
+        <p>(b)
+        \[
+        \begin{pmatrix}
+        1 & 5 \\
+        2 & 16 \\
+        0 & 60
+        \end{pmatrix},\quad
+        \]
+        </p>
+        <p>(c)
+        \[
+        \begin{pmatrix}
+        2 & 1 & 0 \\
+        4 & 3 & 1 \\
+        0 & -1 & 2
+        \end{pmatrix},\quad
+        \]
+        </p>
+        <p>2. Show that the product of $n \times n$ lower triangular matrices is lower triangular.</p>
+    </section>
+</page>
+<page>
+    <p>3. Show that the inverse of an $n \times n$ lower triangular matrix is also $n \times n$ and lower triangular</p>
+</page>
+        
+
