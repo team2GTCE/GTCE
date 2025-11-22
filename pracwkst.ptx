@@ -5,36 +5,48 @@
   <p></p>
     
     <page>
-<m>{\large\textbf{1.1 Studio Organization}}<m>
+<m>{\large\textbf{1.1 Studio Organization}}</m>
   <p> This worksheet is a bit shorter than most other worksheets to give time to discuss course and studio
 organization. We will discuss:</p>
 
   <p>
     A) What are studios? How are they different from lectures?
   </p>
-  <p></p><p></p><p></p>
+   <m></m><p></p><m></m><p></p><m></m><p></p>
   <p>
     B) How do TAs support your class?
   </p>
-  <p></p><p></p><p></p>
+   <m></m><p></p><m></m><p></p><m></m><p></p>
   <p>
     C) Studio recordings and worksheet solutions.
   </p>
-  <p></p><p></p><p></p>
+   <m></m><p></p><m></m><p></p><m></m><p></p>
   <p>
     D) How students can ask questions during studio.
   </p>
-  <p></p><p></p><p></p>
+   <m></m><p></p><m></m><p></p><m></m><p></p>
   <p>
     E) Office hours (please attend them!).
   </p>
-  <p></p><p></p><p></p>
+   <m></m><p></p><m></m><p></p><m></m><p></p>
   <p>
     F) General advice on how to succeed in linear algebra (and college!).
   </p>
-  <p></p><p></p><p></p>
+   <m></m><p></p><m></m><p></p><m></m><p></p>
     </page>
+      
     <page>
+      <m>{\large\textbf{1.2 Linear Systems}}</m>
+      <p>A <m>{\textbf{linear system}}</m> is a set of linear equations. An example of a linear system with two equations is</p>
+      <me>x + 3y = 4</me>
+      <me>5x + 6y = 5</me>
+      <p>We might want to know:</p>
+      <ul>
+        <li>what values of the unknowns satisfy all equations in the system, if any?</li>
+        <li>what procedure do we want to use to identify those values?</li>
+      </ul>
+    </page>
+
     <page>
       <exercise workspace="1in">
           <introduction>
