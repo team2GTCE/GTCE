@@ -1,12 +1,20 @@
-<page xml:id="p9" title="The LU Factorization">
+<?xml version="1.0" encoding="utf-8"?>
 
-    <section xml:id="triangular-matrices" title="1.2.1 Triangular Matrices">
+<pretext>
+    <worksheet xml:id="lu-factorization">
+        <title>The LU Factorization</title>
+
+
+    <!--Page 9 -->
+        <page xml:id="p9" title="1.2.1 Triangular Matrices">
+
+        <section xml:id="triangular-matrices" title="1.2.1 Triangular Matrices">
 
         <p>
         To solve a linear system of the form <m>A\vec{x}=\vec{b}</m>, one could use row reduction,
-        or in theory compute the inverse <m>A^{-1}</m> and then multiply to obtain 
-        <m>\vec{x}=A^{-1}\vec{b}</m>. But computing the inverse of an <m>n\times n</m> matrix is
-        difficult for large <m>n</m>, so more efficient methods are preferred.
+        or in theory compute <m>A^{-1}</m> and then evaluate <m>\vec{x}=A^{-1}\vec{b}</m>. But finding
+        the inverse of an <m>n\times n</m> matrix is inefficient for large <m>n</m>, so more efficient
+        methods are preferred.
         </p>
 
         <p>
@@ -74,29 +82,32 @@
 
         <p>
         In an upper triangular matrix, entries below the main diagonal are zero; in a lower
-        triangular matrix, entries above the main diagonal are zero. The remaining entries may
-        take any value.
+        triangular matrix, entries above the main diagonal are zero.
         </p>
 
     </section>
-</page>
+
+    </page>
+
+
+<!-- Page 10 -->
+
 <page xml:id="p10" title="1.2.2 The LU Factorization">
 
     <section xml:id="the-lu-factorization" title="1.2.2 The LU Factorization">
 
         <theorem xml:id="thm-lu" title="The LU Factorization">
             <statement>
-            If <m>A</m> is an <m>m\times n</m> matrix that can be row reduced to echelon form
-            without any row exchanges, then <m>A = LU</m>, where <m>L</m> is a lower triangular
-            <m>m \times m</m> matrix with ones on the diagonal, and <m>U</m> is an echelon form
-            of <m>A</m>.
+            If <m>A</m> is an <m>m\times n</m> matrix that can be reduced to echelon form
+            without row exchanges, then <m>A = L U</m>, where <m>L</m> is lower triangular
+            with ones on the diagonal, and <m>U</m> is an echelon form of <m>A</m>.
             </statement>
         </theorem>
 
         <proof>
             <p>
             Suppose <m>A</m> can be reduced to echelon form <m>U</m> using <m>p</m> row operations
-            that add a multiple of one row to a lower row. Each operation corresponds to an
+            that add a multiple of one row to a row below it. Each operation corresponds to an
             elementary matrix, so:
             </p>
 
@@ -106,93 +117,400 @@
             Let <m>L^{-1} = E_p E_{p-1} \cdots E_1</m>. Then:
             </p>
 
-            <me>L^{-1} A = U. \tag{1.3}</me>
+            <me>L^{-1}A = U. \tag{1.3}</me>
 
             <p>
-            Multiplying (1.3) by <m>L</m> gives <m>A = LU</m>. Since each <m>E_i</m> is lower
-            triangular, their product <m>L^{-1}</m> is also lower triangular, and so is its
-            inverse <m>L</m>. This proves the decomposition.
+            Multiplying (1.3) by <m>L</m> gives <m>A = LU</m>. Since each <m>E_i</m> is
+            lower triangular, their product <m>L^{-1}</m> is lower triangular, and so is
+            its inverse <m>L</m>.
             </p>
         </proof>
 
     </section>
 
 </page>
+
+
+<!-- Page 11 -->
+
 <page xml:id="p11" title="1.2.3 Constructing the LU Factorization">
 
     <section xml:id="constructing-lu" title="1.2.3 Constructing the LU Factorization">
 
         <p>
-        To construct the LU factorization, we apply a sequence of row operations to reduce
-        <m>A</m> to <m>U</m>. From equation (1.3),
+        To construct the LU factorization, we apply row operations to reduce <m>A</m> to <m>U</m>.
+        From equation (1.3),
         </p>
 
-        <me>E_p E_{p-1} \cdots E_2 E_1 A = L^{-1} A = U.</me>
+        <me>E_p E_{p-1} \cdots E_2 E_1 A = L^{-1}A = U.</me>
 
         <p>
-        Here <m>L^{-1} = E_p E_{p-1} \cdots E_1</m>, where each <m>E_i</m> corresponds to adding
-        a multiple of one row to a lower row.
+        Here <m>L^{-1} = E_p E_{p-1} \cdots E_1</m>, where each <m>E_i</m> corresponds to adding a multiple
+        of one row to a lower row.
         </p>
 
     </section>
 
 </page>
+
+
+<!-- Page 12 -->
+
+<page xml:id="p12" title="1.2.4 Example 1: LU of a 3 x 2 Matrix">
+    <p>
+     But if <m>L^{-1}L = 1 </m>, then given the sequence of new operations that 
+     reduce <m>A</m> to <m>U</m> will reduce <m>L</m> to <m>I</m>. This gives us an algorithm
+     for constructing the LU factorization.
+    </p>
+
+    <algorithm xml:id="alg-lu" title="Connecting the LU Factorization of a Matrix">
+        <statement>
+        <p>Suppose <m>A</m> is an <m>/m times /n</m> matrix that can be reduced to echelon form 
+        without new exchanges. To construct the LU factorization:<p> 
+            <ol>
+                <li>reduce <m>A</m> to an echelon form <m>U</m> by a sequence of now replacement 
+                operations, if possible.</li>
+                <li>place entries in <m>L</m> such that the sequence of new operations that
+                reduces <m>A</m> to <m>U</m> will reduce <m>L</m> to <m>I</m>.
+            </ol>
+        </statement>
+    </algorithm>
+
+    <p> Note that the above procedure will work for any <m>/m time /n</m> matrix that can be 
+        reduces to echelon form without new changes. Meaning that we do not need <m>A</m> to be 
+        square or irreversible to construct the LU factorization.
+    </p>
+
+    <section xml:id="example-lu" title="1.2.4 Example 1: of a 3 x 2 Matrix">
+    <p>In this example we construct LU factorization of the following matrix.</p>
+    
+        <p><m>A = </m></p>
+        <me>
+        \begin{pmatrix}
+        1 & 3 \\
+        2 & 50 
+        0 & 12
+        \end{pmatrix}
+        </me>
+
+    <p>Because <m>A</m>is a<m>/3 times /2</m> The LU factorization as the form </p>
+        
+        <p><m>A = LU = </m></p>
+        <me>
+        \begin{pmatrix}
+        1 & 9 & 0 \\
+        * & 1 & 0 
+        * & * & 1
+        \end{pmatrix}
+
+        \begin{pmatrix}
+        * & *  \\
+        0 & *
+        0 & 0 
+        \end{pmatrix}
+        </me>
+
+        <p>Each <m>*</m> represents an entry that we need to compute the value of. 
+        To reduce <m>A</m> to <m>U</m>. we apply a sequence of new replacement
+        operations as shown below. 
+
+        <p><m>A = </m></p>
+        <me>
+        \begin{pmatrix}
+        1 & 3 \\
+        2 & 50 
+        0 & 12
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 3 \\
+        0 & 4 
+        0 & 12
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 3 \\
+        0 & 4 
+        0 & 0
+        \end{pmatrix}
+        </me>
+
+    </section>
+
+</page>
+
+<!-- Page 13 -->
+
+<page xml:id="p13" title="1.2.5 Solving Linear Systems with the LU Factorization">
+    <p>
+        Matrix <m>U</m> is the echelon form of <m>A</m> that we need for the LU 
+        factorization. We next construct <m>L</m> so that the new operations that
+        reduced <m>A</m> to <m>U</m> will reduce <m>L</m> to <m>I</m>. Our new 
+        operations were: 
+    </p>
+
+     <me>R_1 - 2R right and R_1 - 3R right R_1</me>
+
+    <p>With these two new operations, we see that <m>L</m> must be the matrix:
+        
+       <p>(l)</p> 
+        <me>
+        \begin{pmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0
+        0 & 3 & 1
+        \end{pmatrix}
+        </me>
+
+        <p>Note that the new operations <m>R_1 - 2R right and R_1 - 3R right R_1 </m>
+        applied to <m>L</m> will give us the identity. The LU factorization of A is 
+        </p>
+
+        <p>(a)</p> 
+        <me>
+        \begin{pmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0
+        0 & 3 & 1
+        \end{pmatrix}
+
+        \begin{pmatrix}
+        1 & 3 \\
+        0 & 4
+        0 & 0
+        \end{pmatrix}
+        </me>
+
+        <section xml:id="solving-linear" title="1.2.5 Solving Linear Systems with the LU Factorization">
+        <p>
+        Our motivation for introducing the LU factorization was to reproduce an 
+        efficient method for solving linear systems. Given rectangular matrix 
+        <m>/Delta</m> and vector <m>/vec a</m>, we wish to solve the LU factorization
+        of <m>A</m> to solve <m>AZ = ? for ?</m>. A procedure for doing this is below.   
+        </p>
+        
+        <algorithm xml:id="alg-" title="Algorithm">
+            <statement>
+                <p>
+                  To solve for <m>AZ = ? for ? </m>
+                  <ol>
+                    <li>Construct the LU decomposition of <m>A</m> to obtain <m>L</m>
+                        and <m>U</m>.
+                    </li>
+                    <li> ...........?
+                    </li>
+                    <li>.............?
+                    </li>
+                  </ol>
+                </p>
+            </statement>
+        </algorithm>
+
+        </section>
+</page>
+
+<!-- Page 14 -->
+
+<page xml:id="p14" title="1.2.6 Example 2: Solving a Linear System With LU">
+
+    <section xml:id="solving-linear2" title="1.2.6 Solving Linear Systems with LU">
+        <p>
+            In this example we will solve the linear system <m>...</m> given the LU
+            decomposition of <m>A</m>.
+        </p>
+    
+        <p>
+            <m>A = LU = </m>
+        </p>
+        <me>
+        \begin{pmatrix}
+        1 & 3 & 0 & 0\\
+        1 & 1 & 0 & 0 
+        0 & 2 & 1 & 0
+        0 & 0 & 3 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        1 & 4 & 1\\
+        0 & 1 & 1 
+        0 & 0 & 0
+        \end{pmatrix}
+        ,
+
+        \begin{pmatrix}
+        1 & 3 \\
+        0 & 4 
+        0 & 0
+        \end{pmatrix}
+        </me>
+
+        <p>
+            We first set _____ and solve _____. Reducing the augmented matrix ___ gives us.
+        </p>
+        <me>
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 & 2\\
+        1 & 1 & 0 & 0 & 3
+        0 & 2 & 1 & 0 & 2
+        0 & 0 & 3 & 1 & 0
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 & 2\\
+        0 & 1 & 0 & 0 & 1
+        0 & 2 & 1 & 0 & 2
+        0 & 0 & 1 & 1 & 0
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 & 2\\
+        0 & 1 & 0 & 0 & 1
+        0 & 2 & 1 & 0 & 0
+        0 & 0 & 1 & 1 & 0
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 & 2\\
+        0 & 1 & 0 & 0 & 1
+        0 & 0 & 1 & 0 & 0
+        0 & 0 & 0 & 1 & 0
+        \end{pmatrix}
+        </me>
+
+        <p>
+            Therefore, __ is the vector.
+        </p>
+
+        <p>
+            <m>? = </m>
+        </p>
+        <me>
+        \begin{pmatrix}
+        2 \\
+        1 
+        0 
+        0 
+        \end{pmatrix}
+        </me>
+
+        <p>
+            We now solve <m>____</m>.
+        </p>
+
+        <me>
+        \begin{pmatrix}
+        1 & 4 & 1 & 2\\
+        0 & 1 & 1 & 1 
+        0 & 0 & 0 & 0
+        0 & 0 & 0 & 0
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 4 & 0 & 2\\
+        0 & 1 & 0 & 1 
+        0 & 0 & 1 & 0
+        0 & 0 & 0 & 0
+        \end{pmatrix}
+        ~
+        \begin{pmatrix}
+        1 & 0 & 0 & -2\\
+        0 & 1 & 0 & 1 
+        0 & 0 & 1 & 0
+        0 & 0 & 0 & 0
+        \end{pmatrix}
+        </me>
+
+        <p>
+            The solution to the linear system, __, is the vector
+        </p>
+
+        <p>
+            <m>? = </m>
+        </p>
+        <me>
+        \begin{pmatrix}
+        -2 \\
+        1 
+        0 
+        \end{pmatrix}
+        </me>
+    </section>
+</page>
+
+<!-- Page 15 -->
 
 <page xml:id="p15" title="1.2.7 Final Notes on The LU Factorization">
 
     <section xml:id="lu-final-notes" title="1.2.7 Final Notes on The LU Factorization">
-        <p>In our treatment of the LU factorization we constructed the LU decomposition using the following process.</p>
-        <ol>
-            <li>
-                Reduce <m>A</m> to an echelon form <m>U</m> by a sequence of row replacement
-                operations, if possible.
-            </li>
 
-            <li>
-                Place entries in <m>L</m> such that the same sequence of row operations reduces
-                <m>L</m> to <m>I</m>.
-            </li>
-        </ol>
         <p>
-        There is much more to the LU factorization than what happened in this section. There are for example other methods for constructing <m>A = L U</m>
-        that you may encounter in future courses or project you are working on. In our approach, the only row operation we use to construct <m>L</m> and <m>U</m>
-        is to replace a row with a multiple of a row above it. Multiplying a row by a non-zero scalar is not needed, but more importantly, we cannot swap rows. 
-        More advanced linear algebra and numerical analysis would address the significant limitation.
+        In our treatment of the LU factorization we constructed the LU decomposition using the following process:
         </p>
+
+        <ol>
+            <li>Reduce <m>A</m> to an echelon form <m>U</m> using only row replacement operations.</li>
+            <li>Place entries in <m>L</m> so the same operations reduce <m>L</m> to the identity matrix <m>I</m>.</li>
+        </ol>
+
+        <p>
+        There is more to LU factorization than this introductory method. For example, other approaches allow row
+        exchanges and scaling, which overcome the limitations of our method.
+        </p>
+
     </section>
-    <section xml:id="lu-excercises" title="1.2.8 Excersises">
-        <p>1.Construct The LU factorization for the following matrices.</p>
-        <p>(a)
-        \[
+
+    <section xml:id="lu-exercises" title="1.2.8 Exercises">
+
+        <p>1. Construct the LU factorization for each matrix:</p>
+
+        <p>(a)</p>
+        <me>
         \begin{pmatrix}
         -1 & 5 & 3 \\
-        1 & -10 & 3 
-        \end{pmatrix},\quad
-        \]
-        </p>
-        <p>(b)
-        \[
+        1 & -10 & 3
+        \end{pmatrix}
+        </me>
+
+        <p>(b)</p>
+        <me>
         \begin{pmatrix}
         1 & 5 \\
         2 & 16 \\
         0 & 60
-        \end{pmatrix},\quad
-        \]
-        </p>
-        <p>(c)
-        \[
+        \end{pmatrix}
+        </me>
+
+        <p>(c)</p>
+        <me>
         \begin{pmatrix}
         2 & 1 & 0 \\
         4 & 3 & 1 \\
         0 & -1 & 2
-        \end{pmatrix},\quad
-        \]
-        </p>
-        <p>2. Show that the product of $n \times n$ lower triangular matrices is lower triangular.</p>
+        \end{pmatrix}
+        </me>
+
+        <p>2. Show that the product of two <m>n \times n</m> lower triangular matrices is lower triangular.</p>
+
     </section>
+
 </page>
-<page>
-    <p>3. Show that the inverse of an $n \times n$ lower triangular matrix is also $n \times n$ and lower triangular</p>
+
+
+<!-- Page 16 -->
+
+<page xml:id="p16" title="1.2.9 Additional Exercise">
+
+    <section xml:id="extra-exercise" title="Additional Exercise">
+
+        <p>
+        3. Show that the inverse of an <m>n \times n</m> lower triangular matrix is also
+        lower triangular.
+        </p>
+
+    </section>
+
 </page>
-        
+
+
+    </worksheet>
+</pretext>
 
