@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext>
+  <worksheet xml:id="symmetric-matricies">
+  <title>Chapter 2</title>
+  <plaintitle>Symmetric Matricies and the SVD</plaintitle>
+  <!--Page 40 -->
+     <page xml:id="p40" title="2.1 Orthagonal Diagonalization">
+     <section xml:id="orthagonal-diagonalization" title="2.1 Orthagonal Diagonalization">
+     <p>
+     Many algorithms rely on a type of matrix that is equal to its transpose. If Matrix <m>A</m> satisfies <m>A=A^{T}</m>, then <m>A</m> is <term>symmetric</term>.
+     A common example of a symmetric matrix is the product of <m>A^{T}A</m>, where <m>A</m> is in any <m>m \times n</m> matrix. We use <m>A^{T}A</m> when, for example,
+     constructing the normal equations in least-squares problems. One way to see that <m>A^{T}A</m> is symmetric for any matric <m>A</m> is to take the transpose of <m>A</m>.
+     
+     <me>
+     (A^T A)^T = A^T A^TT = A^T A
+     </me>
+
+     <p>
+     <m>A^{T} A</m> is equal to its transpose so it must be symmetric. But another way we see that <m>A^{T}A</m> is that for any rectangular matrix <m>A</m> with columns
+     <m>a_1, a_2, \ldots, a_n</m>, is to express the matrix product using the row-column rule for matrix multiplication.
+     </p>
+     
+     <me>
+     \underbrace{
+     \begin{pmatrix}
+     a_{11} & a_{12} & \cdots & a_{1n} \\
+     a_{21} & a_{22} & \cdots & a_{2n} \\
+     \vdots & \vdots & \ddots & \vdots \\
+     a_{m1} & a_{m2} & \cdots & a_{mn}
+     \end{pmatrix}
+     }_{\text{entries are dot products of columns of } A}
+    </me>
+
+    <p>Note that <m>a_i^{T}a_j</m> is the dot product between <m>a_i</m> and <m>a_j</m>. And because dot products</p>
+    </section>
+    </page>
