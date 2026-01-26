@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <pretext>
-  <worksheet xml:id="symmetric-matricies">
+  <worksheet xml:id="symmetric-matrices">
   <title>Chapter 2</title>
-  <plaintitle>Symmetric Matricies and the SVD</plaintitle>
+  <plaintitle>Symmetric Matrices and the SVD</plaintitle>
   <!--Page 40 -->
-     <page xml:id="p40" title="2.1 Orthagonal Diagonalization">
-     <section xml:id="orthagonal-diagonalization" title="2.1 Orthagonal Diagonalization">
+     <page xml:id="p40" title="2.1 orthogonal Diagonalization">
+     <section xml:id="orthogonal-diagonalization" title="2.1 orthogonal Diagonalization">
      <p>
      Many algorithms rely on a type of matrix that is equal to its transpose. If Matrix <m>A</m> satisfies <m>A=A^{T}</m>, then <m>A</m> is <term>symmetric</term>.
      A common example of a symmetric matrix is the product of <m>A^{T}A</m>, where <m>A</m> is in any <m>m \times n</m> matrix. We use <m>A^{T}A</m> when, for example,
@@ -64,18 +64,18 @@
     <p><m>A^{T}A</m> is symmetric.</p>
 
     <p>
-    One of the reasons that symmetric matricies are found  in many algorithms is that they posses several properties that we can use to make useful or effecient calculations.
-    In this section we investigate some of these properties that symmetric matricies have. In later sections of this chapter we will use these properties to develop and
-    understand algorithims and their results.
+    One of the reasons that symmetric matrices are found  in many algorithms is that they posses several properties that we can use to make useful or efficient calculations.
+    In this section we investigate some of these properties that symmetric matrices have. In later sections of this chapter we will use these properties to develop and
+    understand algorithms and their results.
     </p>
 
-    <section xml:id="properties-matricies" title="2.1.1 Properties of Symmetric Matricies">
+    <section xml:id="properties-matrices" title="2.1.1 Properties of Symmetric matrices">
 
-    <p>In this section we give three theorems that characterize symmetric matricies.</p>
+    <p>In this section we give three theorems that characterize symmetric matrices.</p>
 
       <subsection xml:id="orthogonal-eigenspaces"
                 title="1) Symmetric Matrices Have Orthogonal Eigenspaces">
-      <p>The eigenspaces of symmetric matricies have a useful property that we can use when, for example, diagonalizing a matrix.</p>
+      <p>The eigenspaces of symmetric matrices have a useful property that we can use when, for example, diagonalizing a matrix.</p>
   
       <theorem xml:id="orthogonal-eigenvectors">
         <statement>
@@ -144,21 +144,22 @@
   </m>
   <m>
     =\lambda_2 \vec{v}_1 \cdot \vec{v}_2
+  </m>
 </md>
 
   <p> Rearranging the equation yields</p>
 
   <me> 
-0 = \lambda_2 \vec{v}_1 \cdot \vec{v}_2 - \lambda_1 \vec{v}_1 = (\lambda_2 - \lambda_1) \vec{v}_1 \cdot \vec{v}_2 
+0 = \lambda_2 \vec{v}_1 \cdot \vec{v}_2 - \lambda_1 \vec{v}_1 \cdot \vec{v}_2 = (\lambda_2 - \lambda_1) \vec{v}_1 \cdot \vec{v}_2 
 </me>
 
   <p>
-But <m>\lambda_1 \neq \lambda_2</m> so <m>\vec{v}_1 \cdot \vec{v}_2 = 0</m>. In other words, eigenvectors corresponding to distinct eigenvalues must be orthagonal.
+But <m>\lambda_1 \neq \lambda_2</m> so <m>\vec{v}_1 \cdot \vec{v}_2 = 0</m>. In other words, eigenvectors corresponding to distinct eigenvalues must be orthogonal.
 </p>
 
   <p>
 This theorem can sometimes be used  to quickly identify the eigenvectors of a matrix. For example, if <m>A</m> is a <m>2 \times 2</m> matrix and we know that <m>\vec{v}_1</m>
-is an eigenvector of <m>A</m>, then we can find any non-zero vector orthagonal to <m>\vec{v}_2</m> to identify the eigenvector for the other eigenspace.
+is an eigenvector of <m>A</m>, then we can find any non-zero vector orthogonal to <m>\vec{v}_2</m> to identify the eigenvector for the other eigenspace.
 </p>
 
 </proof>
@@ -166,9 +167,9 @@ is an eigenvector of <m>A</m>, then we can find any non-zero vector orthagonal t
     2) The Eigenvalues of a Symmetric Matrix are Real
   </heading>
 <theorem xml:id="eigenvalues-matrix">
-  <p>
+  <statement>
   If <m>A</m> is a real symmetrical matrix then all eigenvalues of <m>A</m> are real.
-  </p>
+  </statement>
 </theorem>
 
 <p>A proof of this result is in Appendix 1.2</p>
