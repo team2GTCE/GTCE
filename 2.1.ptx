@@ -103,5 +103,80 @@
   </section>
 
 </page>
-    
 
+<page xml:id="p42">
+
+  <proof>
+
+    <p>
+      <m>\lambda_2</m> are not equal to each other.
+    </p>
+    <md>
+  <m>
+    \lambda_1 \vec{v}_1 \cdot \vec{v}_2
+    = A\vec{v}_1 \cdot \vec{v}_2
+    &amp; \mtext{using } A\vec{v}_1 = \lambda_1 \vec{v}_1
+  </m>
+
+  <m>
+    = (A\vec{v}_1)^T \vec{v}_2
+    &amp; \mtext{using the definition of the dot product}
+  </m>
+
+  <m>
+    = \vec{v}_1^T A^T \vec{v}_2
+    &amp; \mtext{property of transpose of product}
+  </m>
+
+  <m>
+    = \vec{v}_1^T A \vec{v}_2
+    &amp; \mtext{given that } A = A^T
+  </m>
+
+  <m>
+    = \vec{v}_1 \cdot A\vec{v}_2
+    &amp; \mtext{again using the definition of the dot product}
+  </m>
+
+  <m>
+    = \vec{v}_1 \cdot \lambda_2 \vec{v}_2
+    &amp; \mtext{using } A\vec{v}_2 = \lambda_2 \vec{v}_2
+  </m>
+  <m>
+    =\lambda_2 \vec{v}_1 \cdot \vec{v}_2
+</md>
+
+  <p> Rearranging the equation yields</p>
+
+  <me> 
+0 = \lambda_2 \vec{v}_1 \cdot \vec{v}_2 - \lambda_1 \vec{v}_1 = (\lambda_2 - \lambda_1) \vec{v}_1 \cdot \vec{v}_2 
+</me>
+
+  <p>
+But <m>\lambda_1 \neq \lambda_2</m> so <m>\vec{v}_1 \cdot \vec{v}_2 = 0</m>. In other words, eigenvectors corresponding to distinct eigenvalues must be orthagonal.
+</p>
+
+  <p>
+This theorem can sometimes be used  to quickly identify the eigenvectors of a matrix. For example, if <m>A</m> is a <m>2 \times 2</m> matrix and we know that <m>\vec{v}_1</m>
+is an eigenvector of <m>A</m>, then we can find any non-zero vector orthagonal to <m>\vec{v}_2</m> to identify the eigenvector for the other eigenspace.
+</p>
+
+</proof>
+<heading level="3">
+    2) The Eigenvalues of a Symmetric Matrix are Real
+  </heading>
+<theorem xml:id="eigenvalues-matrix">
+  <p>
+  If <m>A</m> is a real symmetrical matrix then all eigenvalues of <m>A</m> are real.
+  </p>
+</theorem>
+
+<p>A proof of this result is in Appendix 1.2</p>
+
+<heading level="3">
+    3) The Spectral Theorem
+  </heading>
+<p>
+It turns out that every real symmetric matrix can be diagonalized using an othagonal matrix , which is a result of the spectral theorem.
+</p>
+</page>
