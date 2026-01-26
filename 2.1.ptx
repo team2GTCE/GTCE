@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext>
+  <worksheet xml:id="symmetric-matricies">
+  <title>Chapter 2</title>
+  <plaintitle>Symmetric Matricies and the SVD</plaintitle>
+  <!--Page 40 -->
+     <page xml:id="p40" title="2.1 Orthagonal Diagonalization">
+     <section xml:id="orthagonal-diagonalization" title="2.1 Orthagonal Diagonalization">
+     <p>
+     Many algorithms rely on a type of matrix that is equal to its transpose. If Matrix <m>A</m> satisfies <m>A=A^{T}</m>, then <m>A</m> is <term>symmetric</term>.
+     A common example of a symmetric matrix is the product of <m>A^{T}A</m>, where <m>A</m> is in any <m>m \times n</m> matrix. We use <m>A^{T}A</m> when, for example,
+     constructing the normal equations in least-squares problems. One way to see that <m>A^{T}A</m> is symmetric for any matric <m>A</m> is to take the transpose of <m>A</m>.
+     </p>
+     
+     <me>
+     (A^T A)^T = A^T (A^T)^T = A^T A
+     </me>
+
+     <p>
+     <m>A^{T} A</m> is equal to its transpose so it must be symmetric. But another way we see that <m>A^{T}A</m> is that for any rectangular matrix <m>A</m> with columns
+     <m>a_1, a_2, \ldots, a_n</m>, is to express the matrix product using the row-column rule for matrix multiplication.
+     </p>
+     
+     <md>
+    A^T A =
+    \begin{pmatrix}
+    a_1 \\
+    a_2 \\
+    \vdots \\
+    a_n
+    \end{pmatrix}
+    \begin{pmatrix}
+    a_1 & a_2 & \cdots & a_n
+    \end{pmatrix}
+    =
+    \underbrace{
+    \begin{pmatrix}
+    a_1 a_1 & a_1 a_2 & \cdots & a_1 a_n \\
+    a_2 a_1 & a_2 a_2 & \cdots & a_2 a_n \\
+    \vdots  & \vdots  & \ddots & \vdots  \\
+    a_n a_1 & a_n a_2 & \cdots & a_n a_n
+    \end{pmatrix}
+    }_{\text{entries are dot products of columns of } A}
+    </md>
+
+
+    <p>Note that <m>a_i^{T}a_j</m> is the dot product between <m>a_i</m> and <m>a_j</m>. And because dot products</p>
+    </section>
+    
+    </page>
+
+  <!-- Page 41 -->
+    <page xml:id="p41">
+
+   
+    
+     <p>
+      commute, in other words
+     </p>
+     
+    <me>a_i^{T}a_j = a_i \cdot a_j = a_j \cdot a_i = a_j^{T}a_i</me>
+
+    <p><m>A^{T}A</m> is symmetric.</p>
+
+    <p>
+    One of the reasons that symmetric matricies are found  in many algorithms is that they posses several properties that we can use to make useful or effecient calculations.
+    In this section we investigate some of these properties that symmetric matricies have. In later sections of this chapter we will use these properties to develop and
+    understand algorithims and their results.
+    </p>
+
+    <section xml:id="properties-matricies" title="2.1.1 Properties of Symmetric Matricies">
+
+    <p>In this section we give three theorems that characterize symmetric matricies.</p>
+
+      <subsection xml:id="orthogonal-eigenspaces"
+                title="1) Symmetric Matrices Have Orthogonal Eigenspaces">
+      <p>The eigenspaces of symmetric matricies have a useful property that we can use when, for example, diagonalizing a matrix.</p>
+  
+      <theorem xml:id="orthogonal-eigenvectors">
+        <statement>
+        If <m>A</m> is a symmetric matrix, with eigenvectors <m>\vec{v}_1</m> and <m>\vec{v}_2</m> corresponding to two distinct eigenvalues, 
+        then <m>\vec{v}_1</m> and <m>\vec{v}_2</m> are orthogonal.
+        </statement>
+      </theorem>
+
+        <p>
+        More generally this theorem implies that eigenspaces associated
+        to distinct eigenvalues are orthogonal subspaces.
+        </p>
+
+        <proof>
+          <p>
+            Our approach will be to show that if <m>A</m> is symmetric then
+            any two of its eigenvectors <m>\vec{v}_1</m> and
+            <m>\vec{v}_2</m> must be orthogonal when their corresponding
+            eigenvalues <m>\lambda_1</m> and <m>\lambda_2</m>
+          </p>
+       </proof>
+
+    </subsection>
+
+  </section>
+
+</page>
+    
+
