@@ -182,7 +182,166 @@ It turns out that every real symmetric matrix can be diagonalized using an othag
 </p>
 </page>
 
-<!-- Aditi write here!! -->
+<!--Page 43-->
+
+<page xml:id="p43>
+
+  <theorem xml:id="spectral-theorem">
+    <title>The Spectral Theorem</title>
+    <statement>
+      <p>
+        An <m>n \times n</m> matrix <m>A</m> is symmetric if and only if
+        the matrix can be orthogonally diagonalized.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    A proof of this theorem is beyond the scope of these notes, but there are several
+    important consequences of this theorem. All symmetric matrices can not only be
+    diagonalized, but they can be diagonalized with an orthogonal matrix. Moreover,
+    the only matrices that can be diagonalized orthogonally are symmetric, and that if
+    a matrix can be diagonalized with an orthogonal matrix, then it is symmetric.
+  </p>
+
+  <subsection xml:id="example-2x2">
+    <title>Example 1: Orthogonal Diagonalization of a 2 × 2 Matrix</title>
+
+    <p>
+      Suppose <m>A</m> is the symmetric matrix below.
+    </p>
+
+    <me>
+      A = \begin{pmatrix} 0 &amp; -2 \\ -2 &amp; 3 \end{pmatrix},
+      \quad \lambda_1 = 4, \quad \lambda_2 = -1
+    </me>
+
+    <p>
+      The eigenvalues of <m>A</m> are given. In this example we will diagonalize
+      <m>A</m> using an orthogonal matrix <m>P</m>. For eigenvalue
+      <m>\lambda_1 = 4</m> we have
+    </p>
+
+    <me>
+      A - \lambda_1 I =
+      \begin{pmatrix} -4 &amp; -2 \\ -2 &amp; -1 \end{pmatrix}
+    </me>
+
+    <p>
+      A vector in the null space of <m>A - \lambda_1 I</m> is the eigenvector
+    </p>
+
+    <me>
+      \vec{v}_1 = \begin{pmatrix} 1 \\ -2 \end{pmatrix}
+    </me>
+
+    <p>
+      A vector orthogonal to <m>\vec{v}_1</m> is
+    </p>
+
+    <me>
+      \vec{v}_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}
+    </me>
+
+    <p>
+      which must be an eigenvector for <m>\lambda_2</m> because <m>A</m> is symmetric.
+    </p>
+
+  </page>
+
+
+<!--Page 44-->
+  <page xml:id="p44>
+
+    <p>
+      Dividing each of the eigenvectors by their respective length, and then collecting
+      these unit vectors into a single matrix, <m>P</m>, we obtain an orthogonal matrix.
+      In other words, <m>P^{-1}P = PP^{-1} = I</m>. This convenient property gives us a
+      convenient way to compute <m>P^{-1}</m> should it be needed.
+    </p>
+
+    <p>
+      Placing the eigenvalues of <m>A</m> in the order that matches the order used to
+      create <m>P</m>, we obtain the factorization
+    </p>
+
+    <me>
+      A = PDP^{T}, \quad
+      D = \begin{pmatrix} \lambda_1 &amp; 0 \\ 0 &amp; \lambda_2 \end{pmatrix}, \quad
+      P = \frac{1}{\sqrt{5}}
+      \begin{pmatrix} 1 &amp; 2 \\ -2 &amp; 1 \end{pmatrix}
+    </me>
+
+  </subsection>
+
+  <subsection xml:id="example-3x3">
+    <title>Example 2: Orthogonal Diagonalization of a 3 × 3 Matrix</title>
+
+    <p>
+      In this example we will diagonalize a matrix, <m>A</m>, using an orthogonal
+      matrix, <m>P</m>.
+    </p>
+
+    <me>
+      A =
+      \begin{pmatrix}
+        0 &amp; 0 &amp; 1 \\
+        0 &amp; 1 &amp; 0 \\
+        1 &amp; 0 &amp; 0
+      \end{pmatrix},
+      \quad \lambda = -1, 1
+    </me>
+
+    <p>
+      The eigenvalues of <m>A</m> are given. For eigenvalue <m>\lambda_1 = -1</m> we have
+    </p>
+
+    <me>
+      A - \lambda_1 I =
+      \begin{pmatrix}
+        1 &amp; 0 &amp; 1 \\
+        0 &amp; 2 &amp; 0 \\
+        1 &amp; 0 &amp; 1
+      \end{pmatrix}
+      \sim
+      \begin{pmatrix}
+        1 &amp; 0 &amp; 1 \\
+        0 &amp; 2 &amp; 0 \\
+        1 &amp; 0 &amp; 1
+      \end{pmatrix}
+    </me>
+
+    <p>
+      A vector in the null space of <m>A - \lambda_1 I</m> is the eigenvector
+    </p>
+
+    <me>
+      \vec{v}_1 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+    </me>
+
+    <p>
+      For eigenvalue <m>\lambda_2 = 1</m> we have
+    </p>
+
+    <me>
+      A - \lambda_2 I =
+      \begin{pmatrix}
+        -1 &amp; 0 &amp; 1 \\
+        0 &amp; 0 &amp; 0 \\
+        1 &amp; 0 &amp; -1
+      \end{pmatrix}
+      \sim
+      \begin{pmatrix}
+        -1 &amp; 0 &amp; 1 \\
+        0 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0
+      \end{pmatrix}
+    </me>
+
+  </subsection>
+
+</section>
+</page>
 
 <page xml:id="p43" title="Examples of Orthogonal Diagonalization">
 
