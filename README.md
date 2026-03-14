@@ -1,6 +1,7 @@
 Georgia Tech Textbook Accessibility Project
 This project converts Georgia Tech textbook pages into structured PreTeXt and LaTeX markup to improve accessibility and digital readability. 
 Our goal is to transform textbook content into a format that can be compiled into accessible web pages
+
 Tools Used:
 - XML
 - PreTeXt
